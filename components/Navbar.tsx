@@ -21,25 +21,29 @@ export default function Navbar({ openLogin }: Props) {
         </figure>
 
         <ul className="nav__list--wrapper">
+
           {!user ? (
-            <li className="nav__list nav__list--login" onClick={openLogin}>
-              Login
-            </li>
+            <>
+              <li className="nav__list nav__list--login">
+                Login
+              </li>
+
+              <li className="nav__list nav__list--mobile">About</li>
+              <li className="nav__list nav__list--mobile">Contact</li>
+              <li className="nav__list nav__list--mobile">Help</li>
+            </>
           ) : (
             <>
               <li className="nav__list">
-                <Link href="/dashboard">Dashboard</Link>
+                Dashboard
               </li>
 
-              <li
-                className="nav__list"
-                onClick={logout}
-                style={{ cursor: "pointer" }}
-              >
+              <li className="nav__list">
                 Logout
               </li>
             </>
           )}
+
         </ul>
 
       </div>

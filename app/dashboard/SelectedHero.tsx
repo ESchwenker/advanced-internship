@@ -22,7 +22,7 @@ export default function SelectedHero() {
             src="/the-lean-startup.png"
             alt="Lean Startup"
             width={140}
-            height={200}
+            height={140}
           />
         </div>
 
@@ -36,7 +36,7 @@ export default function SelectedHero() {
             <div className="selectedHero__play">
               <FaPlay />
             </div>
-            <span>3 mins 23 secs</span>
+            <span className="selectedHero__timer">3 mins 23 secs</span>
           </div>
 
         </div>

@@ -8,7 +8,7 @@ import SummaryCard from "../dashboard/SummaryCard"
 import Header from "../dashboard/Header"
 import { books } from "@/lib/books"
 import SelectedHero from "../dashboard/SelectedHero"
-import RecommendedRow from "../dashboard/RecommendedRow"
+import RecommendedRow from "./RecommendedSection"
 
 export default function Dashboard() {
   const { user, loading } = useAuth()
