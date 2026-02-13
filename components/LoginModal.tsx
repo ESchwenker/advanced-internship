@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { FaUser } from "react-icons/fa"
+import { useAuth } from "@/context/AuthContext"
 
 interface Props {
   isOpen: boolean
@@ -14,12 +15,14 @@ export default function LoginModal({ isOpen, onClose }: Props) {
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const { login, loginAsGuest } = useAuth()
 
   if (!isOpen) return null
 
   function handleLogin(e: React.FormEvent) {
     e.preventDefault()
 
+    login(email)
     router.push("/dashboard")
     onClose()
   }
@@ -40,7 +43,13 @@ export default function LoginModal({ isOpen, onClose }: Props) {
           Log in to Summarist
         </h2>
 
-        <button className="modal__guest-btn">
+        <button
+          className="modal__guest-btn"
+          onClick={() => {
+            loginAsGuest()
+            router.push("/dashboard")
+          }}
+          >
             <div className="modal__guest-icon">
                 <FaUser />
             </div>
