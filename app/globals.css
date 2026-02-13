@@ -904,32 +904,6 @@ button:disabled {
   color: #6b7280;
 }
 
-.summaryCard {
-  cursor: pointer;
-}
-
-.summaryCard__image img {
-  border-radius: 8px;
-  width: 100%;
-  height: auto;
-}
-
-.summaryCard__info {
-  margin-top: 10px;
-}
-
-.summaryCard__author {
-  font-size: 14px;
-  color: #6b7280;
-}
-
-.summaryCard__meta {
-  display: flex;
-  justify-content: space-between;
-  font-size: 13px;
-  color: #9ca3af;
-}
-
 
 /* RESPONSIVE DESIGN */
 
