@@ -7,6 +7,7 @@ import Sidebar from "../dashboard/Sidebar"
 import Header from "../dashboard/Header"
 import SelectedHero from "../dashboard/SelectedHero"
 import RecommendedSection from "./RecommendedSection"
+import SuggestedSection from "./SuggestedSection"
 
 export default function Dashboard() {
   const { user, loading } = useAuth()
@@ -31,6 +32,7 @@ export default function Dashboard() {
         <Header />
         <SelectedHero />
         <RecommendedSection />
+        <SuggestedSection />
 
         <div className="dashboard__content"></div>
 

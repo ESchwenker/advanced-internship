@@ -824,6 +824,7 @@ button:disabled {
 .sectionSubtitle {
   color: #6b7280;
   margin-bottom: 22px;
+  font-weight: 300;
 }
 
 .recommended__scroll {
