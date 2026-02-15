@@ -671,27 +671,24 @@ button:disabled {
 .sidebar__logo-img {
   width: 200px;
   object-fit: contain;
-  padding: 12px;
+  padding: 14px;
 }
 
 /* ---------- NAV ---------- */
-
-.sidebar__tabs {
-  margin-top: 36px;
-}
 
 .sidebar__nav {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  margin-top: 48px;
 }
 
 .sidebar__link {
   position: relative;
   display: flex;
   align-items: center;
-  gap: 18px;
-  padding: 14px 24px;
+  gap: 10px;
+  padding: 18px 24px;
   font-size: 16px;
   color: #12344d;
   text-decoration: none;
@@ -1091,7 +1088,7 @@ button:disabled {
 /* Audio Player Page */
 
 .player__content{
-  margin: 28px 140px;
+  margin: 110px 120px;
   padding-bottom:140px;
 }
 
@@ -1103,7 +1100,7 @@ button:disabled {
 }
 
 .player__divide {
-  height:1px;
+  height: 0.5px;
   background:#e5e7eb;
   margin:20px 0 30px;
 }
@@ -1111,6 +1108,35 @@ button:disabled {
 .player__para {
   line-height:1.4;
   color:rgb(4, 35, 48);
+}
+
+.playerPage .dashboard__main{
+  margin-left: 220px;
+}
+
+.playerPage .sidebar{
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.playerPage .sidebar__tabs{
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 100px;
+}
+
+.playerPage .sidebar__nav-bottom{
+  margin-top: auto;
+}
+
+.playerPage .dashboardHeader{
+  position: fixed;
+  top: 0;
+  left: 260px;
+  right: 0;
+  z-index: 50;
+  background: white;
 }
 
 
@@ -1233,6 +1259,42 @@ button:disabled {
 .audioPlayer__right span {
   font-size: 14px;
 }
+
+/* SETTING PAGE */
+
+.settings{
+  padding:40px 12px;
+  max-width:1000px;
+}
+
+.settings__title{
+  font-size:32px;
+  font-weight:700;
+  color:#0f2d3f;
+  margin-bottom:16px;
+}
+
+.settings__section{
+  padding:26px 0;
+  border-top:1px solid rgba(15,45,63,0.12);
+}
+
+.settings__section:first-of-type{
+  border-top:1px solid rgba(15,45,63,0.12);
+}
+
+.settings__label{
+  font-size:20px;
+  font-weight:600;
+  color:#0f2d3f;
+  margin-bottom:6px;
+}
+
+.settings__value {
+  font-size: 16px;
+  color:#374151;
+}
+
 
 
 /* RESPONSIVE DESIGN */

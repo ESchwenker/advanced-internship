@@ -19,7 +19,9 @@ export default function Sidebar({ setFontSize, activeFont, setActiveFont }: any)
   const { logout } = useAuth()
 
   function active(path: string) {
-    return pathname === path ? "sidebar__link sidebar__link--active" : "sidebar__link"
+  return pathname === path || pathname.startsWith(path + "/")
+    ? "sidebar__link sidebar__link--active"
+    : "sidebar__link"
   }
 
   return (
@@ -88,7 +90,7 @@ export default function Sidebar({ setFontSize, activeFont, setActiveFont }: any)
           )}
           <nav className="sidebar__nav-bottom">
 
-                <Link href="/dashboard/settings" className={active("/dashboard/settings")}>
+                <Link href="/settings" className={active("/settings")}>
                     <FiSettings />
                     <span>Settings</span>
                 </Link>
