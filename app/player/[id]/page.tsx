@@ -11,6 +11,8 @@ export default function PlayerPage(){
 
   const { id } = useParams();
   const [book,setBook] = useState<any>(null);
+  const [fontSize,setFontSize] = useState(18);
+  const [activeFont,setActiveFont] = useState(0);
 
   useEffect(()=>{
 
@@ -32,7 +34,11 @@ export default function PlayerPage(){
 
     <div className="dashboard playerPage">
 
-        <Sidebar />
+        <Sidebar
+            setFontSize={setFontSize}
+            activeFont={activeFont}
+            setActiveFont={setActiveFont}
+        />
 
       <div className="dashboard__main">
 
@@ -44,9 +50,15 @@ export default function PlayerPage(){
 
           <div className="player__divide"></div>
 
-          <p className="player__para" style={{whiteSpace:"pre-line"}}>
-            {book.summary}
-          </p>
+            <p
+                className="player__para"
+                style={{
+                    whiteSpace:"pre-line",
+                    fontSize: fontSize
+                }}
+                >
+                {book.summary}
+            </p>
 
         </div>
 

@@ -14,7 +14,7 @@ import {
   FiLogOut,
 } from "react-icons/fi"
 
-export default function Sidebar() {
+export default function Sidebar({ setFontSize, activeFont, setActiveFont }: any) {
   const pathname = usePathname()
   const { logout } = useAuth()
 
@@ -53,6 +53,39 @@ export default function Sidebar() {
             </Link>
 
           </nav>
+          {setFontSize && (
+            <div className="sidebar__fontControls">
+
+              <button
+                className={activeFont===0 ? "btn1 active" : "btn1"}
+                onClick={()=>{ setFontSize(16); setActiveFont(0); }}
+              >
+                Aa
+              </button>
+
+              <button
+                className={activeFont===1 ? "btn2 active" : "btn2"}
+                onClick={()=>{ setFontSize(18); setActiveFont(1); }}
+              >
+                Aa
+              </button>
+
+              <button
+                className={activeFont===2 ? "btn3 active" : "btn3"}
+                onClick={()=>{ setFontSize(22); setActiveFont(2); }}
+              >
+                Aa
+              </button>
+
+              <button
+                className={activeFont===3 ? "btn4 active" : "btn4"}
+                onClick={()=>{ setFontSize(24); setActiveFont(3); }}
+              >
+                Aa
+              </button>
+
+            </div>
+          )}
           <nav className="sidebar__nav-bottom">
 
                 <Link href="/dashboard/settings" className={active("/dashboard/settings")}>
