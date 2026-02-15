@@ -61,13 +61,14 @@ export default function RecommendedSection() {
         {books.map((book) => (
           <BookCarouselCard
             key={book.id}
+            id={book.id}
             title={book.title}
             author={book.author}
             description={book.subTitle}
             image={book.imageLink}
             time={formatTime(book.audioLength)}
             rating={book.averageRating}
-            bgColor="#e5cfa3"
+            subscriptionRequired={book.subscriptionRequired}
           />
         ))}
 
