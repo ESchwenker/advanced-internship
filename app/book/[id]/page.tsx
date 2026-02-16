@@ -2,12 +2,12 @@
 
 import { useParams } from "next/navigation"
 import { useEffect, useState } from "react"
-import Sidebar from "@/app/dashboard/Sidebar"
-import Header from "@/app/dashboard/Header"
+import Sidebar from "@/app/for-you/Sidebar"
+import Header from "@/app/for-you/Header"
 import Image from "next/image"
 import { formatTime } from "@/lib/utils"
 import { getAudioDuration } from "@/lib/getAudioDuration"
-import { FaMicrophone, FaLightbulb } from "react-icons/fa"
+import { FaMicrophone, FaLightbulb, FaBookmark } from "react-icons/fa"
 import { FiStar, FiClock, FiBookmark, FiBookOpen } from "react-icons/fi"
 import Link from "next/link"
 
@@ -19,6 +19,27 @@ export default function BookPage() {
   const [book, setBook] = useState<any>(null)
   const [duration, setDuration] = useState<number | null>(null)
   const [loading, setLoading] = useState(true)
+  const [saved,setSaved] = useState(false);
+
+  function toggleSave(){
+
+    const savedBooks = JSON.parse(localStorage.getItem("savedBooks") || "[]");
+
+    if(saved){
+
+      const updated = savedBooks.filter((b:any)=>b.id !== book.id);
+      localStorage.setItem("savedBooks",JSON.stringify(updated));
+      setSaved(false);
+
+    } else {
+
+      savedBooks.push(book);
+      localStorage.setItem("savedBooks",JSON.stringify(savedBooks));
+      setSaved(true);
+
+    }
+
+  }
 
   useEffect(() => {
 
@@ -49,6 +70,18 @@ export default function BookPage() {
     if (id) fetchBook()
 
   }, [id])
+
+  useEffect(()=>{
+
+    if(!book) return;
+
+    const savedBooks = JSON.parse(localStorage.getItem("savedBooks") || "[]");
+
+    const exists = savedBooks.find((b:any)=>b.id === book.id);
+
+    if(exists) setSaved(true);
+
+  },[book]);
 
 
   if (loading) return <p>Loading...</p>
@@ -125,8 +158,13 @@ export default function BookPage() {
 
               </div>
 
-              <p className="bookLibrary">
-                <FiBookmark /> Add title to My Library
+              <p
+                className="bookLibrary"
+                onClick={toggleSave}
+                style={{cursor:"pointer"}}
+              >
+                {saved ? <FaBookmark /> : <FiBookmark />}
+                {saved ? " Saved in My Library" : " Add title to My Library"}
               </p>
 
             </div>

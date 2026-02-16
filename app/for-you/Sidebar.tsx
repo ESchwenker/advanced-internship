@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useAuth } from "@/context/AuthContext"
+import { useRouter } from "next/navigation";
 
 import {
   FiHome,
@@ -16,7 +17,8 @@ import {
 
 export default function Sidebar({ setFontSize, activeFont, setActiveFont }: any) {
   const pathname = usePathname()
-  const { logout } = useAuth()
+  const { user, logout } = useAuth()
+  const router = useRouter();
 
   function active(path: string) {
   return pathname === path || pathname.startsWith(path + "/")
@@ -34,22 +36,40 @@ export default function Sidebar({ setFontSize, activeFont, setActiveFont }: any)
         <div className="sidebar__tabs">
           <nav className="sidebar__nav">
 
-            <Link href="/dashboard" className={active("/dashboard")}>
+            <Link
+              href="/for-you"
+              className={active("/for-you")}
+              onClick={(e)=>{
+                if(!user){
+                  e.preventDefault();
+                  router.push("/settings");
+                }
+              }}
+            >
               <FiHome />
               <span>For you</span>
             </Link>
 
-            <Link href="/dashboard/library" className={active("/dashboard/library")}>
+            <Link
+              href="/library"
+              className={active("/library")}
+              onClick={(e)=>{
+                if(!user){
+                  e.preventDefault();
+                  router.push("/settings");
+                }
+              }}
+            >
               <FiBookmark />
               <span>My Library</span>
             </Link>
 
-            <Link href="/dashboard/highlights" className={active("/dashboard/highlights")}>
+            <Link href="/for-you/highlights" className={active("/for-you/highlights")}>
               <FiEdit />
               <span>Highlights</span>
             </Link>
 
-            <Link href="/dashboard/search" className={active("/dashboard/search")}>
+            <Link href="/for-you/search" className={active("/for-you/search")}>
               <FiSearch />
               <span>Search</span>
             </Link>
@@ -95,14 +115,23 @@ export default function Sidebar({ setFontSize, activeFont, setActiveFont }: any)
                     <span>Settings</span>
                 </Link>
 
-                <Link href="/dashboard/help" className={active("/dashboard/help")}>
+                <Link href="/for-you/help" className={active("/for-you/help")}>
                     <FiHelpCircle />
                     <span>Help & Support</span>
                 </Link>
 
-                <button className="sidebar__link sidebar__logout" onClick={logout}>
-                    <FiLogOut />
-                    <span>Logout</span>
+                <button
+                  className="sidebar__link sidebar__logout"
+                  onClick={()=>{
+                    if(user){
+                      logout();
+                    } else {
+                      window.dispatchEvent(new Event("open-login"));
+                    }
+                  }}
+                >
+                  <FiLogOut />
+                  <span>{user ? "Logout" : "Login"}</span>
                 </button>
           </nav>
       </div>

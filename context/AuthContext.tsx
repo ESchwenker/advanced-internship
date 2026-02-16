@@ -21,81 +21,104 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined)
 
 export function AuthProvider({ children }: { children: ReactNode }) {
 
-  const [user, setUser] = useState<User>(null)
-  const [loading, setLoading] = useState(true)
+  const [user,setUser] = useState<User>(null)
+  const [loading,setLoading] = useState(true)
   const router = useRouter()
 
-  useEffect(() => {
+  // restore login after refresh
+  useEffect(()=>{
     const storedUser = localStorage.getItem("user")
-    if (storedUser) setUser(JSON.parse(storedUser))
+    if(storedUser){
+      setUser(JSON.parse(storedUser))
+    }
     setLoading(false)
-  }, [])
+  },[])
 
-  // ✅ VALIDATION
-  function validate(email:string,password:string){
+  // ---------- LOGIN ----------
+  function login(email:string,password:string){
 
-    if(!email.includes("@")) return "Invalid email"
-    if(password.length < 6) return "Short password"
+    // ⭐ DEMO ACCOUNT FOR RECRUITERS
+    if(email==="guest@gmail.com" && password==="guest123"){
+      const newUser={email}
+      setUser(newUser)
+      localStorage.setItem("user",JSON.stringify(newUser))
+      router.push("/for-you")
+      return null
+    }
 
-    return null
-  }
+    // invalid email
+    if(!email.includes("@")){
+      return "Invalid email"
+    }
 
-  // ✅ LOGIN
-  function login(email: string, password: string){
-
-    if(!email.includes("@")) return "Invalid email"
+    // short password
+    if(password.length < 6){
+      return "Short password"
+    }
 
     const storedPass = localStorage.getItem("account_"+email)
 
-    if(!storedPass || storedPass !== password){
+    // user does not exist
+    if(!storedPass){
       return "User not found"
     }
 
-    const newUser = { email }
+    // wrong password
+    if(storedPass !== password){
+      return "User not found"
+    }
+
+    const newUser={email}
 
     setUser(newUser)
-    localStorage.setItem("user", JSON.stringify(newUser))
+    localStorage.setItem("user",JSON.stringify(newUser))
 
     router.push("/for-you")
 
     return null
   }
 
-  // ✅ REGISTER
+  // ---------- REGISTER ----------
   function register(email:string,password:string){
 
-    const err = validate(email,password)
-    if(err) return err
+    if(!email.includes("@")){
+      return "Invalid email"
+    }
+
+    if(password.length < 6){
+      return "Short password"
+    }
 
     localStorage.setItem("account_"+email,password)
 
-    const newUser = { email }
+    const newUser={email}
 
     setUser(newUser)
-    localStorage.setItem("user", JSON.stringify(newUser))
+    localStorage.setItem("user",JSON.stringify(newUser))
 
     router.push("/for-you")
 
     return null
   }
 
-  // ✅ GUEST LOGIN
+  // ---------- GUEST BUTTON ----------
   function loginAsGuest(){
 
-    const guestUser = { isGuest: true }
+    const guestUser={ isGuest:true }
 
     setUser(guestUser)
-    localStorage.setItem("user", JSON.stringify(guestUser))
+    localStorage.setItem("user",JSON.stringify(guestUser))
 
     router.push("/for-you")
   }
 
+  // ---------- LOGOUT ----------
   function logout(){
     setUser(null)
     localStorage.removeItem("user")
   }
 
-  return (
+  return(
     <AuthContext.Provider value={{
       user,
       loading,
@@ -113,9 +136,10 @@ export function useAuth(){
 
   const context = useContext(AuthContext)
 
-  if (!context) {
+  if(!context){
     throw new Error("useAuth must be used inside AuthProvider")
   }
 
   return context
 }
+

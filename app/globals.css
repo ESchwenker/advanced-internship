@@ -460,6 +460,11 @@ button:disabled {
   z-index: 1000;
 }
 
+.modal__error-top {
+  color: rgb(255, 86, 86);
+  margin-bottom: 18px;
+}
+
 .modal__content {
   width: 400px;
   height: 520px;
@@ -1379,6 +1384,96 @@ button:disabled {
 .settings__value {
   font-size: 16px;
   color:#374151;
+}
+
+/* LOGOUT SETTINGS */
+
+.logout__divider {
+  width: 100%;
+  height: 0.5px;
+  background:#e5e7eb;
+  margin:16px 0 24px 0;
+}
+
+.logout__description{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logout__info {
+  color:#0f2d3f;
+}
+
+.logout__btn {
+  width: 100px;
+  margin-top: 18px;
+}
+
+/* MY LIBRARY */
+
+.library__content {
+  padding: 0 12px;
+}
+.libraryGrid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,140px);
+  gap:80px;
+  margin: 40px 0;
+}
+
+.libraryCard{
+  cursor:pointer;
+  width:180px;
+  cursor:pointer;
+  color:#0f2d3f;
+}
+
+.library__title {
+  color:#0f2d3f;
+  font-size: 22px;
+  margin-top: 48px;
+}
+
+.library__count {
+  color:#0f2d3f;
+  font-size: 16px;
+  font-weight: 300;
+  margin-top: 20px;
+}
+
+.library-bookTitle{
+  font-weight:700;
+  font-size: 16px;
+  margin-top:8px;
+}
+
+.library-bookAuthor{
+  color:#666;
+  font-size: 14px;
+  font-weight: 300;
+  margin: 8px 0;
+}
+
+.library-bookSubtitle{
+  font-size:14px;
+  margin:6px 0;
+  color:#666;
+}
+
+.libraryMeta{
+  display:flex;
+  gap:16px;
+  color:#666;
+  font-size:14px;
+  font-weight: 300;
+}
+
+.library__icon {
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 

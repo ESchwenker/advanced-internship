@@ -8,26 +8,21 @@ import Features from "@/components/Features"
 import Reviews from "@/components/Reviews"
 import Numbers from "@/components/Numbers"
 import Footer from "@/components/Footer"
-import LoginModal from "@/components/LoginModal"
 
 export default function Home() {
 
   const [isLoginOpen, setIsLoginOpen] = useState(false)
+  const [signupOpen,setSignupOpen]= useState(false)
 
   return (
     <>
-      <Navbar openLogin={() => setIsLoginOpen(true)} />
+      <Navbar openLogin={() => window.dispatchEvent(new Event("open-login"))} />
 
-      <Landing openLogin={() => setIsLoginOpen(true)} />
+      <Landing openLogin={() => window.dispatchEvent(new Event("open-login"))} />
       <Features />
       <Reviews />
       <Numbers />
       <Footer />
-
-      <LoginModal
-        isOpen={isLoginOpen}
-        onClose={() => setIsLoginOpen(false)}
-      />
     </>
   )
 }
