@@ -33,7 +33,10 @@ export default function BookPage() {
 
     } else {
 
-      savedBooks.push(book);
+      if(!savedBooks.find((b:any)=>b.id===book.id)){
+        savedBooks.push(book);
+      }
+
       localStorage.setItem("savedBooks",JSON.stringify(savedBooks));
       setSaved(true);
 

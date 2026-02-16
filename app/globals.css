@@ -1386,6 +1386,11 @@ button:disabled {
   color:#374151;
 }
 
+.upgrade__btn {
+  width: 100px;
+  margin-top: 24px;
+}
+
 /* LOGOUT SETTINGS */
 
 .logout__divider {
@@ -1474,6 +1479,48 @@ button:disabled {
   display: flex;
   align-items: center;
   gap: 4px;
+}
+
+/* UPGRADE PLAN */
+
+.chooseHero{
+  background:#082f3f;
+  color:white;
+  text-align:center;
+  padding-top:90px;
+  margin: 10px;
+  border-bottom-left-radius:20% 200px;
+  border-bottom-right-radius:20% 200px;
+  margin-bottom: 50px;
+}
+
+.chooseHero__content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width:900px;
+  margin:auto;
+}
+
+.chooseHero h1{
+  font-size:48px;
+  font-weight:700;
+  line-height:1.2;
+}
+
+.chooseHero p{
+  margin-top:20px;
+  font-size:20px;
+  opacity:.9;
+}
+
+.plan-img{
+  margin-top: 40px;
+  width:350px;
+  border-top-left-radius:600px;
+  border-top-right-radius:600px;
+  display: flex;
+  display: block;
 }
 
 

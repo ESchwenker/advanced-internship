@@ -3,10 +3,13 @@
 import Sidebar from "@/app/for-you/Sidebar";
 import Header from "@/app/for-you/Header";
 import { useAuth } from "@/context/AuthContext";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function SettingsPage(){
 
-  const { user } = useAuth();
+  const { user, plan } = useAuth();
+  const router = useRouter();
 
   return (
 
@@ -61,7 +64,12 @@ export default function SettingsPage(){
                 Your Subscription plan
               </div>
               <div className="settings__value">
-                premium
+                { plan }
+                {plan === "basic" && (
+                <Link href="/choose-plan">
+                  <button className="btn upgrade__btn">Upgrade to Premium</button>
+                </Link>
+                )}
               </div>
             </div>
 

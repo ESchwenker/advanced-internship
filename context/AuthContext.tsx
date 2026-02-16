@@ -11,10 +11,12 @@ type User = {
 type AuthContextType = {
   user: User
   loading: boolean
+  plan: string
   login: (email: string, password: string) => string | null
   register: (email: string, password: string) => string | null
   loginAsGuest: () => void
   logout: () => void
+  upgrade: (newPlan:string)=>void
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined)
@@ -24,14 +26,22 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [user,setUser] = useState<User>(null)
   const [loading,setLoading] = useState(true)
   const router = useRouter()
+  const [plan, setPlan] = useState("basic")
 
-  // restore login after refresh
   useEffect(()=>{
+
     const storedUser = localStorage.getItem("user")
     if(storedUser){
       setUser(JSON.parse(storedUser))
     }
+
+    const storedPlan = localStorage.getItem("subscription")
+    if(storedPlan){
+      setPlan(storedPlan)
+    }
+
     setLoading(false)
+
   },[])
 
   // ---------- LOGIN ----------
@@ -40,8 +50,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     // ⭐ DEMO ACCOUNT FOR RECRUITERS
     if(email==="guest@gmail.com" && password==="guest123"){
       const newUser={email}
+
       setUser(newUser)
       localStorage.setItem("user",JSON.stringify(newUser))
+
+      // FORCE overwrite old plans
+      localStorage.removeItem("subscription")
+      localStorage.setItem("subscription","basic")
+      setPlan("basic")
+
       router.push("/for-you")
       return null
     }
@@ -96,6 +113,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setUser(newUser)
     localStorage.setItem("user",JSON.stringify(newUser))
 
+    localStorage.setItem("subscription","basic")
+    setPlan("basic")
+
     router.push("/for-you")
 
     return null
@@ -115,7 +135,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   // ---------- LOGOUT ----------
   function logout(){
     setUser(null)
+    setPlan("basic")
     localStorage.removeItem("user")
+    localStorage.removeItem("subscription")
+  }
+
+  function upgrade(newPlan:string){
+  setPlan(newPlan)
+  localStorage.setItem("subscription",newPlan)
   }
 
   return(
@@ -125,7 +152,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       login,
       register,
       loginAsGuest,
-      logout
+      logout,
+      plan,
+      upgrade
     }}>
       {children}
     </AuthContext.Provider>
