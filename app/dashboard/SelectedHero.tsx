@@ -5,6 +5,7 @@ import Image from "next/image"
 import { FaPlay } from "react-icons/fa"
 import { formatTimeVerbose } from "@/lib/utils"
 import { getAudioDuration } from "@/lib/getAudioDuration"
+import Link from "next/link";
 
 export default function SelectedHero() {
 
@@ -39,14 +40,14 @@ export default function SelectedHero() {
 
       <h2 className="sectionTitle">Selected just for you</h2>
 
-      <div className="selectedHero__card">
+      <Link href={`/book/${book.id}`} className="selectedHero__card">
 
-        {/* LEFT TEXT */}
+
         <div className="selectedHero__left">
           <p>{book.subTitle}</p>
         </div>
 
-        {/* BOOK IMAGE */}
+
         <div className="selectedHero__image">
           <Image
             src={book.imageLink}
@@ -56,7 +57,7 @@ export default function SelectedHero() {
           />
         </div>
 
-        {/* RIGHT INFO */}
+
         <div className="selectedHero__right">
 
           <h3>{book.title}</h3>
@@ -73,7 +74,7 @@ export default function SelectedHero() {
 
         </div>
 
-      </div>
+      </Link>
 
     </section>
   )

@@ -461,11 +461,13 @@ button:disabled {
 }
 
 .modal__content {
-  width: 420px;
+  width: 400px;
+  height: 520px;
   padding: 0 28px;
   background: white;
   border-radius: 10px;
   position: relative;
+  overflow: hidden;
 }
 
 .modal__close {
@@ -482,7 +484,7 @@ button:disabled {
   text-align: center;
   margin-bottom: 18px;
   margin-top: 48px;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 600;
   color: #12344d;
 }
@@ -490,8 +492,8 @@ button:disabled {
 .modal__guest-btn,
 .modal__google-btn {
   width: 100%;
-  padding: 14px;
-  border-radius: 6px;
+  height: 40px;
+  border-radius: 4px;
   border: none;
   cursor: pointer;
   font-size: 16px;
@@ -508,8 +510,9 @@ button:disabled {
 
 .modal__guest-icon {
   position: absolute;
+  margin-top: 6px;
   left: 12px;
-  font-size: 24px;
+  font-size: 28px;
 }
 
 .modal__google-btn {
@@ -528,11 +531,11 @@ button:disabled {
 
 .modal__google-wrapper {
   position: absolute;
-  left: 4px;
+  left: 2px;
   width: 38px;
-  height: 38px;
+  height: 36px;
   background: white;
-  border-radius: 6px;
+  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -545,6 +548,8 @@ button:disabled {
 .modal__divider {
   display: flex;
   align-items: center;
+  font-size: 14px;
+  font-weight: 500;
   margin: 14px 0;
   width: 100%;
 }
@@ -564,11 +569,13 @@ button:disabled {
 
 .modal__form input {
   width: 100%;
+  height: 40px;
   padding: 14px;
   margin-bottom: 4px;
-  border-radius: 6px;
+  border-radius: 4px;
   border: 2px solid #cfd8dc;
-  font-size: 16px;
+  font-size: 14px;
+  margin-bottom: 16px;
 }
 
 .modal__login-btn {
@@ -577,18 +584,27 @@ button:disabled {
 
 .modal__forgot {
   text-align: center;
-  margin-top: 16px;
+  font-size: 14px;
+  font-weight: 300;
+  margin-top: 24px;
   color: #3b82f6;
   cursor: pointer;
 }
 
 .modal__signup {
   margin-top: 18px;
-  padding: 16px;
-  background: #e5e7eb;
-  text-align: center;
+  padding: 14px;
+  margin: 24px -32px -32px -32px;
   color: #2563eb;
+  background: #eff1f5;
+  text-align: center;
   font-size: 17px;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.modal__signup:hover {
+  background-color: #dbe3f3;
 }
 
 /* DASHBOARD */
@@ -618,10 +634,16 @@ button:disabled {
 
 /* ---------- SEARCH BAR ---------- */
 
+.dashboardHeader__searchWrapper{
+  position:relative;
+  width:320px;
+  margin-left: auto;
+}
+
 .dashboardHeader__search {
+  position: relative;
   display: flex;
   margin-left: auto;
-  width: 320px;
   height: 40px;
   background: #f9fafb;
   border: 2px solid #e5e7eb;
@@ -654,6 +676,70 @@ button:disabled {
 .dashboardHeader__icon {
   font-size: 20px;
   color: #0f2d3f;
+}
+
+.header{
+  position:relative;
+}
+
+.searchDropdown{
+  position:absolute;
+  top:220%;
+  left:-120;
+  width: 140%;
+  padding: 16px;
+  background:white;
+  border-radius:4px;
+  box-shadow: 0 0 6px rgba(0,0,0,.20);
+  z-index:100;
+}
+
+.searchItem{
+  display:flex;
+  gap:16px;
+  padding:18px;
+  text-decoration:none;
+  color:inherit;
+}
+
+.search-img {
+  height: 80px;
+  width: 80px;
+}
+
+.searchItem:hover{
+  background:#eef4fa;
+}
+
+.searchTitle{
+  font-size:16px;
+  font-weight:500;
+  margin-bottom: 8px;
+}
+
+.searchAuthor{
+  font-size: 14px;
+  font-weight: 300;
+  color:#6b7280;
+}
+
+.search-time {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top:8px;
+  font-size:14px;
+  font-weight: 300;
+  color:#6b7280;
+}
+
+.searchEmpty{
+  padding:22px;
+  font-size:18px;
+}
+
+.searchItem + .searchItem{
+  border-top:1px solid #e5e7eb;
 }
 
 .sidebar {
