@@ -1,7 +1,7 @@
 "use client";
 
-import Sidebar from "@/app/for-you/Sidebar";
-import Header from "@/app/for-you/Header";
+import Sidebar from "@/components/Sidebar";
+import Header from "@/components/Header";
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
 import Link from "next/link";

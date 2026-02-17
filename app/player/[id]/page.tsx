@@ -3,8 +3,8 @@
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import Sidebar from "@/app/for-you/Sidebar";
-import Header from "@/app/for-you/Header";
+import Sidebar from "@/components/Sidebar";
+import Header from "@/components/Header";
 import AudioPlayer from "@/components/AudioPlayer";
 
 export default function PlayerPage(){

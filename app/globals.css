@@ -870,6 +870,10 @@ button:disabled {
   background:#22c55e;
 }
 
+.noClick {
+  cursor: not-allowed;
+}
+
 /* HERO CARD */
 
 .selectedHero__card {
@@ -1481,17 +1485,30 @@ button:disabled {
   gap: 4px;
 }
 
+.noSavedBooks {
+  color:#0b3c49;
+  border-radius: 8px;
+  background-color: #f2f2f2;
+  width: 35%;
+  margin: 0 auto;
+  padding: 28px;
+  text-align: center;
+}
+
+.noSaved__para {
+  margin-top: 8px;
+}
+
 /* UPGRADE PLAN */
 
 .chooseHero{
   background:#082f3f;
   color:white;
   text-align:center;
-  padding-top:90px;
+  padding-top:45px;
   margin: 10px;
   border-bottom-left-radius:20% 200px;
   border-bottom-right-radius:20% 200px;
-  margin-bottom: 50px;
 }
 
 .chooseHero__content{
@@ -1509,7 +1526,7 @@ button:disabled {
 }
 
 .chooseHero p{
-  margin-top:20px;
+  margin-top:40px;
   font-size:20px;
   opacity:.9;
 }
@@ -1523,7 +1540,273 @@ button:disabled {
   display: block;
 }
 
+.choosePlans{
+  max-width:900px;
+  margin:0 auto;
+  text-align:center;
+}
 
+.choosePlans__title{
+  font-size:36px;
+  font-weight:700;
+  margin-bottom:40px;
+}
+
+.planBenefits {
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  margin:80px auto;
+  max-width:1000px;
+}
+
+.planBenefit{
+  text-align:center;
+  max-width:240px;
+}
+
+.planBenefit__icon{
+  font-size:58px;
+  color:#0b3c49;
+  margin-bottom:18px;
+}
+
+.planBenefit p{
+  font-size:16px;
+  line-height:1.5;
+  color:#243b45;
+}
+
+.planBenefit strong{
+  font-weight:700;
+}
+
+/* PLAN CARD */
+
+.planCard__wrapper {
+  width: 75%;
+  margin: 0 auto;
+}
+
+.planCard{
+  display:flex;
+  gap:30px;
+  align-items:center;
+  text-align:left;
+  padding:26px;
+  border-radius:4px;
+  border:4px solid #cbd5da;
+  background:#f4f7f8;
+  cursor:pointer;
+  margin-bottom:24px;
+  transition:.2s;
+}
+
+.choosePlans__title {
+  color:#0f2d3f;
+  font-size: 32px;
+}
+
+.planCard--active{
+  border:4px solid #3bd473;
+}
+
+.planRadio{
+  width:26px;
+  height:26px;
+  border-radius:50%;
+  border:2px solid #222;
+  position:relative;
+}
+
+.planCard--active .planRadio::after{
+  content:"";
+  width:6px;
+  height:6px;
+  background:#111;
+  border-radius:50%;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+}
+
+.plan-title{
+  color:#0f2d3f;
+}
+
+.plan-price{
+  color:#0f2d3f;
+  font-size: 24px;
+  padding: 8px 0;
+}
+
+.plan-trial {
+  color:#777;
+  font-size: 14px;
+}
+
+.planOr{
+  display:flex;
+  align-items:center;
+  width: 40%;
+  margin: 0 auto;
+  padding-bottom: 24px;
+  gap:16px;
+}
+
+.planOr span{
+  flex:1;
+  height:1px;
+  background:#cfd8dc;
+}
+
+.planOr p{
+  font-size: 14px;
+  margin:0;
+  color:#777;
+}
+
+.planBtn{
+  margin-top: 8px;
+  background:#3bd473;
+  color:#0f2d3f;
+  border:none;
+  font-size:16px;
+  padding:10px 60px;
+  border-radius:4px;
+  cursor:pointer;
+}
+
+.planFine{
+  font-size: 12px;
+  margin-top:20px;
+  color:#6b7280;
+}
+
+.sticky__wrapper{
+  position: relative;
+}
+
+.planSticky{
+  position: sticky;
+  bottom: 0;
+  background: white;
+  padding: 28px 0;
+  text-align: center;
+  z-index: 999;
+}
+
+
+/* PLAN FACTS */
+
+.planFAQ{
+max-width: 80%;;
+margin: 0 auto;
+padding-bottom: 40px;
+}
+
+.faqItem{
+border-bottom:1px solid #dbe3e7;
+padding:28px 0;
+}
+
+.faqHeader{
+display:flex;
+justify-content:space-between;
+align-items:center;
+cursor:pointer;
+}
+
+.faqHeader h3{
+font-size:24px;
+font-weight:500;
+color:#0f2d3c;
+}
+
+.faqIcon{
+font-size:32px;
+transition:.5s;
+}
+
+.faqIcon--open{
+transform:rotate(180deg);
+}
+
+.faqContent{
+  display:grid;
+  grid-template-rows:0fr;
+  transition:grid-template-rows .45s cubic-bezier(.4,0,.2,1);
+}
+
+.drop-down {
+  overflow: hidden;
+}
+
+.faqContent--open{
+  grid-template-rows:1fr;
+}
+
+.faqContent p{
+color:#0f2d3c;
+font-size:16px;
+margin-top: 24px;
+line-height:1.7;
+}
+
+/* PLAN PAGE FOOTER */
+
+.footer{
+  background:#f3f3f3;
+  padding:60px 40px 30px;
+}
+
+.footer__grid{
+  display:grid;
+  grid-template-columns: repeat(4, max-content);
+  justify-content: center;
+  gap:180px;
+}
+
+.footer h4{
+  margin-bottom:18px;
+  font-size:18px;
+  color:#16394a;
+}
+
+.footer p{
+  margin:10px 0;
+  color:#16394a;
+  font-size: 14px;
+  cursor:pointer;
+}
+
+
+.footer__copyright{
+  text-align:center;
+  margin-top:60px;
+  font-size:16px;
+  color:#0a2540;
+}
+
+/* SKELETON LOADING */
+
+.skeleton{
+  background: linear-gradient(
+    90deg,
+    #e5e7eb 25%,
+    #f3f4f6 37%,
+    #e5e7eb 63%
+  );
+  background-size: 400% 100%;
+  animation: skeleton-loading 1.4s ease infinite;
+  border-radius: 8px;
+}
+
+@keyframes skeleton-loading{
+  0%{ background-position:100% 0 }
+  100%{ background-position:-100% 0 }
+}
 
 /* RESPONSIVE DESIGN */
 

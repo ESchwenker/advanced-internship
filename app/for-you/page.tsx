@@ -3,11 +3,11 @@
 import { useAuth } from "@/context/AuthContext"
 import { useRouter } from "next/navigation"
 import { useEffect } from "react"
-import Sidebar from "./Sidebar"
-import Header from "./Header"
-import SelectedHero from "./SelectedHero"
-import RecommendedSection from "./RecommendedSection"
-import SuggestedSection from "./SuggestedSection"
+import Sidebar from "../../components/Sidebar"
+import Header from "../../components/Header"
+import SelectedHero from "../../components/SelectedHero"
+import RecommendedSection from "../../components/RecommendedSection"
+import SuggestedSection from "../../components/SuggestedSection"
 
 export default function Dashboard() {
   const { user, loading } = useAuth()

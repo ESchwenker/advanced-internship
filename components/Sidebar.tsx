@@ -64,12 +64,19 @@ export default function Sidebar({ setFontSize, activeFont, setActiveFont }: any)
               <span>My Library</span>
             </Link>
 
-            <Link href="/for-you/highlights" className={active("/for-you/highlights")}>
+            <Link 
+            href="/for-you/highlights" 
+            className={`${active("/for-you/highlights")} noClick`} 
+            onClick={(e)=>e.preventDefault()}>
               <FiEdit />
               <span>Highlights</span>
+
             </Link>
 
-            <Link href="/for-you/search" className={active("/for-you/search")}>
+            <Link 
+            href="/for-you/search" 
+            className={`${active("/for-you/search")} noClick`}
+            onClick={(e)=>e.preventDefault()}>
               <FiSearch />
               <span>Search</span>
             </Link>
@@ -110,14 +117,17 @@ export default function Sidebar({ setFontSize, activeFont, setActiveFont }: any)
           )}
           <nav className="sidebar__nav-bottom">
 
-                <Link href="/settings" className={active("/settings")}>
+                <Link href="/settings" className={active("/for-you/settings")}>
                     <FiSettings />
                     <span>Settings</span>
                 </Link>
 
-                <Link href="/for-you/help" className={active("/for-you/help")}>
+                <Link 
+                href="/for-you/help" 
+                className={`${active("/for-you/help")} noClick`}
+                onClick={(e)=>e.preventDefault()}>
                     <FiHelpCircle />
-                    <span>Help & Support</span>
+                    <span className="noClick">Help & Support</span>
                 </Link>
 
                 <button

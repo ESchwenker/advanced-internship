@@ -54,6 +54,7 @@ export default function LoginModal({ isOpen, onClose, openSignup }: Props) {
           className="modal__guest-btn"
           onClick={() => {
             loginAsGuest();
+            onClose();
           }}
         >
           <div className="modal__guest-icon">

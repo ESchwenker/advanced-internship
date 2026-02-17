@@ -1,8 +1,8 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import Sidebar from "@/app/for-you/Sidebar"
-import Header from "@/app/for-you/Header"
+import Sidebar from "@/components/Sidebar"
+import Header from "@/components/Header"
 import Link from "next/link"
 import Image from "next/image"
 import { FiStar, FiClock } from "react-icons/fi"
@@ -69,9 +69,9 @@ export default function LibraryPage(){
 
         {books.length === 0 && (
 
-          <div style={{marginTop:"60px"}}>
-            <h3>Save your favorite books!</h3>
-            <p>When you save a book, it will appear here.</p>
+          <div className="noSavedBooks" style={{marginTop:"60px"}}>
+            <h3 className="noSaved__title">Save your favorite books!</h3>
+            <p className="noSaved__para">When you save a book, it will appear here.</p>
           </div>
 
         )}

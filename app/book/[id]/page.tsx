@@ -2,8 +2,8 @@
 
 import { useParams } from "next/navigation"
 import { useEffect, useState } from "react"
-import Sidebar from "@/app/for-you/Sidebar"
-import Header from "@/app/for-you/Header"
+import Sidebar from "@/components/Sidebar"
+import Header from "@/components/Header"
 import Image from "next/image"
 import { formatTime } from "@/lib/utils"
 import { getAudioDuration } from "@/lib/getAudioDuration"

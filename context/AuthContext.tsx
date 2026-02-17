@@ -129,6 +129,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setUser(guestUser)
     localStorage.setItem("user",JSON.stringify(guestUser))
 
+    // ⭐ ADD THIS
+    window.dispatchEvent(new Event("close-login"))
+
     router.push("/for-you")
   }
 
