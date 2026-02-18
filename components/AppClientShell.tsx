@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import LoginModal from "@/components/LoginModal";
 import SignupModal from "@/components/SignupModal";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function AppClientShell({ children }) {
 
@@ -10,6 +12,12 @@ export default function AppClientShell({ children }) {
   const [signupOpen,setSignupOpen]=useState(false);
 
   useEffect(()=>{
+
+    AOS.init({
+      duration: 900,
+      easing: "ease-out-cubic",
+      once: true
+    });
 
     function openLogin(){
       setIsLoginOpen(true);

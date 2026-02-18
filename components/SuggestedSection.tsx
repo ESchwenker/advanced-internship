@@ -41,8 +41,6 @@ export default function SuggestedSection() {
     fetchBooks()
   }, [])
 
-  if (loading) return <p>Loading suggested books...</p>
-
   return (
     <section className="recommended">
 

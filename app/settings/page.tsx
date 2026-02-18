@@ -55,7 +55,7 @@ export default function SettingsPage(){
 
           /* ⭐ NORMAL SETTINGS WHEN LOGGED IN */
 
-          <div className="settings">
+          <div className="settings" data-aos="fade-right">
 
             <h1 className="settings__title">Settings</h1>
 

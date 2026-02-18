@@ -21,7 +21,7 @@ export default function ChoosePlanPage() {
 
   return (
     <section>
-      <div className="chooseHero">
+      <div className="chooseHero" data-aos="fade-left">
         <div className="chooseHero__content">
           <h1>
             Get unlimited access to many amazing

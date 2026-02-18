@@ -1,28 +1,73 @@
-export default function Loading(){
+export default function Loading() {
 
-  return(
+  return (
 
-    <div className="dashboard__content library__content">
+    <div className="dashboard">
 
-      <div className="skeleton h-10 w-48 mb-6"/>
-
-      <div className="libraryGrid">
-
+      {/* SIDEBAR */}
+      <aside className="sidebar">
+        <div className="skeleton skeleton-logo" />
         {[...Array(6)].map((_,i)=>(
-          <div key={i} className="libraryCard">
+          <div key={i} className="skeleton skeleton-sidebar-link" />
+        ))}
+      </aside>
 
-            <div className="skeleton h-[180px] w-[180px]" />
 
-            <div className="skeleton h-6 w-40 mt-3"/>
-            <div className="skeleton h-4 w-28 mt-2"/>
-            <div className="skeleton h-4 w-48 mt-2"/>
+      <div className="dashboard__main">
+
+        {/* HEADER */}
+        <header className="dashboardHeader">
+          <div className="dashboardHeader__searchWrapper">
+            <div className="skeleton skeleton-search"/>
+          </div>
+        </header>
+
+
+        {/* CONTENT */}
+        <div className="dashboard__content library__content">
+
+          {/* TITLE */}
+          <div className="skeleton skeleton-section-title" />
+
+          {/* COUNT */}
+          <div className="skeleton h-4 w-24 mb-6" />
+
+
+          {/* GRID */}
+          <div className="libraryGrid">
+
+            {[...Array(6)].map((_,i)=>(
+              <div key={i} className="libraryCard">
+
+                {/* IMAGE */}
+                <div className="skeleton skeleton-library-img"/>
+
+                {/* TITLE */}
+                <div className="skeleton skeleton-title mt-3"/>
+
+                {/* AUTHOR */}
+                <div className="skeleton skeleton-author"/>
+
+                {/* SUBTITLE */}
+                <div className="skeleton skeleton-desc"/>
+
+                {/* META */}
+                <div className="libraryMeta">
+                  <div className="skeleton skeleton-meta"/>
+                </div>
+
+              </div>
+            ))}
 
           </div>
-        ))}
+
+        </div>
 
       </div>
 
     </div>
 
   )
+
 }
+

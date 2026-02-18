@@ -1798,8 +1798,8 @@ line-height:1.7;
     #f3f4f6 37%,
     #e5e7eb 63%
   );
-  background-size: 400% 100%;
-  animation: skeleton-loading 1.4s ease infinite;
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.2s linear infinite;
   border-radius: 8px;
 }
 
@@ -1807,6 +1807,115 @@ line-height:1.7;
   0%{ background-position:100% 0 }
   100%{ background-position:-100% 0 }
 }
+
+/* SEARCH */
+.skeleton-search{
+  width:320px;
+  height:44px;
+  border-radius:999px;
+}
+
+/* HERO */
+.skeleton-hero-card{
+  display:flex;
+  gap:24px;
+  padding:24px;
+}
+
+.skeleton-hero-left{
+  width:200px;
+  height:80px;
+}
+
+.skeleton-hero-image{
+  width:140px;
+  height:145px;
+  border-radius:8px;
+}
+
+/* BOOK CARDS */
+
+.skeleton-card{
+  width:180px;
+  margin-right:20px;
+}
+
+.skeleton-book-cover{
+  width:100%;
+  height:240px;
+  border-radius:10px;
+}
+
+.skeleton-book-img{
+  width:170px;
+  height:170px;
+  border-radius:8px;
+}
+
+/* TEXT */
+
+.skeleton-text-lg{
+  height:22px;
+  width:200px;
+  margin:10px 0;
+}
+
+.skeleton-text-sm{
+  height:16px;
+  width:140px;
+  margin:8px 0;
+}
+
+.w-60{width:60%}
+.w-40{width:40%}
+
+.skeleton-title{
+  height:18px;
+  width:140px;
+  margin:10px 0;
+}
+
+.skeleton-author{
+  height:14px;
+  width:100px;
+  margin:6px 0;
+}
+
+.skeleton-desc{
+  height:14px;
+  width:160px;
+  margin:6px 0;
+}
+
+.skeleton-meta{
+  height:14px;
+  width:120px;
+  margin-top:10px;
+}
+
+/* SECTION TITLES */
+
+.skeleton-section-title{
+  width:220px;
+  height:26px;
+  margin:24px 0 12px;
+}
+
+.skeleton-subtitle{
+  width:160px;
+  height:18px;
+  margin-bottom:18px;
+}
+
+/* LIBRARY PAGE */
+
+.skeleton-library-img{
+  width:180px;
+  height:180px;
+  border-radius:8px;
+}
+
+
 
 /* RESPONSIVE DESIGN */
 

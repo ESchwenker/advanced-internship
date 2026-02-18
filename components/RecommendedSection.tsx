@@ -45,8 +45,6 @@ export default function RecommendedSection() {
 
   }, [])
 
-  if (loading) return <p>Loading recommended books...</p>
-
   return (
     <section className="recommended">
 

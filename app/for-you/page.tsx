@@ -1,47 +1,12 @@
-"use client"
+import ForYouClient from "./ForYouClient";
 
-import { useAuth } from "@/context/AuthContext"
-import { useRouter } from "next/navigation"
-import { useEffect } from "react"
-import Sidebar from "../../components/Sidebar"
-import Header from "../../components/Header"
-import SelectedHero from "../../components/SelectedHero"
-import RecommendedSection from "../../components/RecommendedSection"
-import SuggestedSection from "../../components/SuggestedSection"
+async function wait() {
+  await new Promise(r => setTimeout(r, 2000));
+}
 
-export default function Dashboard() {
-  const { user, loading } = useAuth()
-  const router = useRouter()
+export default async function Page() {
 
-  useEffect(() => {
+  await wait();   // ← fake server delay
 
-    if (loading) return;
-    const stored = localStorage.getItem("user");
-
-    if (!user && !stored) {
-      router.push("/");
-    }
-
-  }, [user, loading]);
-
-  if (loading) {
-    return <p>Loading...</p>
-  }
-
-  return (
-    <div className="dashboard">
-      <Sidebar />
-
-      <main className="dashboard__main">
-
-        <Header />
-        <SelectedHero />
-        <RecommendedSection />
-        <SuggestedSection />
-
-        <div className="dashboard__content"></div>
-
-      </main>
-    </div>
-  )
+  return <ForYouClient />;
 }
