@@ -12,12 +12,25 @@ export default function ChoosePlanPage() {
   const { upgrade } = useAuth();
   const router = useRouter();
 
-  function handleStart() {
-    const plan = selected === "yearly" ? "premium-plus" : "premium";
 
-    upgrade(plan);
-    router.push("/for-you");
+  async function handleCheckout() {
+
+    const priceId =
+      selected === "yearly"
+        ? "price_1T4NX4CO4JkHe1kryxQU79Yz"
+        : "price_1T4NY0CO4JkHe1kr81rxW6rw";
+
+    const res = await fetch("/api/checkout", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ priceId }),
+    });
+
+    const data = await res.json();
+
+    window.location.href = data.url;
   }
+
 
   return (
     <section>
@@ -97,7 +110,7 @@ export default function ChoosePlanPage() {
         <div className="planSticky">
             <button
                 className="planBtn"
-                onClick={() => window.dispatchEvent(new Event("open-login"))}
+                onClick={handleCheckout}
                 >
               {selected === "yearly"
                 ? "Start your free 7-day trial"
