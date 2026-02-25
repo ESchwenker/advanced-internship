@@ -3,6 +3,7 @@
 import { useAuth } from "@/context/AuthContext"
 import { useRouter } from "next/navigation"
 import { useEffect } from "react"
+import { useState } from "react"
 import Sidebar from "../../components/Sidebar"
 import Header from "../../components/Header"
 import SelectedHero from "../../components/SelectedHero"
@@ -12,6 +13,7 @@ import SuggestedSection from "../../components/SuggestedSection"
 export default function ForYouClient(){
   const { user, loading } = useAuth()
   const router = useRouter()
+  const [sidebarOpen, setSidebarOpen] = useState(false)
 
   useEffect(() => {
 
@@ -26,11 +28,11 @@ export default function ForYouClient(){
 
   return (
     <div className="dashboard">
-      <Sidebar />
+      <Sidebar open={sidebarOpen} close={() => setSidebarOpen(false)} />
 
       <main className="dashboard__main">
 
-        <Header />
+        <Header toggleSidebar={() => setSidebarOpen(prev => !prev)} />
         <SelectedHero />
         <RecommendedSection />
         <SuggestedSection />

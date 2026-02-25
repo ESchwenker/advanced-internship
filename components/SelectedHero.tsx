@@ -47,31 +47,32 @@ export default function SelectedHero() {
           <p>{book.subTitle}</p>
         </div>
 
-
-        <div className="selectedHero__image">
-          <Image
-            src={book.imageLink}
-            alt={book.title}
-            width={140}
-            height={145}
-          />
-        </div>
-
-
-        <div className="selectedHero__right">
-
-          <h3>{book.title}</h3>
-          <p className="selectedHero__author">{book.author}</p>
-
-          <div className="selectedHero__audio">
-            <div className="selectedHero__play">
-              <FaPlay />
-            </div>
-
-            <span className="selectedHero__timer">{formatTimeVerbose(bookDuration)}</span>
-
+        <div className="selectedHero__book">
+          <div className="selectedHero__image">
+            <Image
+              src={book.imageLink}
+              alt={book.title}
+              width={140}
+              height={145}
+            />
           </div>
 
+
+          <div className="selectedHero__right">
+
+            <h3>{book.title}</h3>
+            <p className="selectedHero__author">{book.author}</p>
+
+            <div className="selectedHero__audio">
+              <div className="selectedHero__play">
+                <FaPlay />
+              </div>
+
+              <span className="selectedHero__timer">{formatTimeVerbose(bookDuration)}</span>
+
+            </div>
+
+          </div>
         </div>
 
       </Link>

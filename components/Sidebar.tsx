@@ -15,7 +15,13 @@ import {
   FiLogOut,
 } from "react-icons/fi"
 
-export default function Sidebar({ setFontSize, activeFont, setActiveFont }: any) {
+export default function Sidebar({
+  open,
+  close,
+  setFontSize,
+  activeFont,
+  setActiveFont
+}: any) {
   const pathname = usePathname()
   const { user, logout } = useAuth()
   const router = useRouter();
@@ -27,7 +33,7 @@ export default function Sidebar({ setFontSize, activeFont, setActiveFont }: any)
   }
 
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar ${open ? "sidebar--open" : ""}`}>
         <div className="sidebar__top">
             <div className="sidebar__brand">
                 <img src="/logo.png" alt="logo" className="sidebar__logo-img" />

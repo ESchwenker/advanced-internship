@@ -7,7 +7,7 @@ import { FiClock, FiX } from "react-icons/fi";
 import { formatTime } from "@/lib/utils";
 import { getAudioDuration } from "@/lib/getAudioDuration";
 
-export default function Header() {
+export default function Header({ toggleSidebar }) {
   const [search, setSearch] = useState("");
   const [results, setResults] = useState([]);
   const [open, setOpen] = useState(false);
@@ -129,6 +129,9 @@ export default function Header() {
         )}
 
       </div>
+      <button className="burger" onClick={toggleSidebar}>
+        ☰
+      </button>
 
     </header>
   );
