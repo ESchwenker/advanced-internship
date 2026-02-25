@@ -754,6 +754,17 @@ button:disabled {
   border-top:1px solid #e5e7eb;
 }
 
+
+/* ---------- LOGO ---------- */
+
+.sidebar__logo-img {
+  width: 200px;
+  object-fit: contain;
+  padding: 14px;
+}
+
+/* ---------- SIDEBAR NAV ---------- */
+
 .sidebar {
   position: sticky;
   top: 0;
@@ -769,16 +780,6 @@ button:disabled {
   overflow-y:auto;
   padding-bottom:120px;
 }
-
-/* ---------- LOGO ---------- */
-
-.sidebar__logo-img {
-  width: 200px;
-  object-fit: contain;
-  padding: 14px;
-}
-
-/* ---------- NAV ---------- */
 
 .sidebar__nav {
   display: flex;
