@@ -1,1 +1,7 @@
-STRIPE_WEBHOOK_SECRET=whsec_d569ae71bb20c92344d5504d3d57c64a8e6fca99198f95ba84bb62f4f75dc3ed 
+import { NextResponse } from "next/server"
+
+export async function POST(req: Request) {
+  return NextResponse.json({ received: true })
+}
+
+
