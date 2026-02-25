@@ -6,7 +6,7 @@ import SignupModal from "@/components/SignupModal";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-export default function AppClientShell({ children }) {
+export default function AppClientShell() {
 
   const [isLoginOpen,setIsLoginOpen]=useState(false);
   const [signupOpen,setSignupOpen]=useState(false);
@@ -24,15 +24,12 @@ export default function AppClientShell({ children }) {
     }
 
     window.addEventListener("open-login",openLogin);
-
     return ()=>window.removeEventListener("open-login",openLogin);
 
   },[]);
 
   return (
     <>
-      {children}
-
       <LoginModal
         isOpen={isLoginOpen}
         onClose={()=>setIsLoginOpen(false)}
@@ -53,3 +50,4 @@ export default function AppClientShell({ children }) {
     </>
   );
 }
+

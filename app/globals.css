@@ -764,6 +764,12 @@ button:disabled {
   flex-direction: column;
 }
 
+.sidebar--player .sidebar__tabs{
+  flex:1;
+  overflow-y:auto;
+  padding-bottom:120px;
+}
+
 /* ---------- LOGO ---------- */
 
 .sidebar__logo-img {
@@ -1226,12 +1232,6 @@ button:disabled {
 
 .playerPage .dashboard__main{
   margin-left: 220px;
-}
-
-.playerPage .sidebar{
-  position: fixed;
-  top: 0;
-  left: 0;
 }
 
 .playerPage .sidebar__tabs{
@@ -1745,7 +1745,7 @@ color:#0f2d3c;
 }
 
 .faqIcon{
-font-size:34px;
+font-size:32px;
 transition:.5s;
 }
 
@@ -2088,10 +2088,6 @@ line-height:1.7;
 
   .bookSummary {
     width: 100%;
-  }
-
-  .sidebar{
-    display:none;
   }
 
   .playerPage .dashboard__main{
