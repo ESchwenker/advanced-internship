@@ -897,7 +897,7 @@ button:disabled {
 /* HERO CARD */
 
 .selectedHero {
-  width: 130%;
+  width: 100%;
 }
 
 .selectedHero__card {
@@ -992,6 +992,7 @@ button:disabled {
   gap: 28px;
   margin-top: 28px;
   overflow-x: auto;
+  overflow-y: visible;
   padding-bottom: 8px;
 }
 
@@ -1009,7 +1010,7 @@ button:disabled {
 }
 
 .carouselCard {
-  width: 190px;
+  width: 175px;
   flex-shrink: 0;
   cursor: pointer;
   border-radius: 6px;
@@ -2078,6 +2079,10 @@ line-height:1.7;
     height:auto;
   }
 
+  .recommended__scroll {
+    flex-wrap: wrap;
+  }
+
   .bookTop {
     flex-direction:column-reverse;
   }
@@ -2151,5 +2156,10 @@ line-height:1.7;
 @media (max-width: 576px) {
   .nav__list--mobile {
     display: none;
+  }
+
+  .searchDropdown {
+    left: 0;
+    width: 100%;
   }
 }
